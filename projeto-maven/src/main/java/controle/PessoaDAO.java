@@ -76,6 +76,8 @@ public class PessoaDAO {
 	}
 	
 	//Métodos de excluir e atualizar
+	
+	//EXCLUIR
 	public boolean excluir (Pessoa p) {
 		ConexaoBanco c = ConexaoBanco.getInstancia();
 		Connection con = c.conectar();
@@ -97,6 +99,7 @@ public class PessoaDAO {
 		return true;
 	}
 	
+	//ATUALIZAR
 	public boolean atualizar (Pessoa p) {
 		ConexaoBanco c = ConexaoBanco.getInstancia();
 		Connection con = c.conectar();
