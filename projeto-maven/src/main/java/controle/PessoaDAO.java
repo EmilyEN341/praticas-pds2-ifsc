@@ -10,6 +10,7 @@ import modelo.Pessoa;
 
 public class PessoaDAO {
 
+	//LISTAR
 	public ArrayList<Pessoa> listar() {
 
 		ConexaoBanco c = ConexaoBanco.getInstancia();
@@ -50,6 +51,8 @@ public class PessoaDAO {
 		return pessoas;
 	}
 
+	
+	//INSERIR
 	public boolean inserir(Pessoa p) {
 
 		ConexaoBanco c = ConexaoBanco.getInstancia();
