@@ -74,5 +74,47 @@ public class PessoaDAO {
 		}
 		return false;
 	}
+	
+	//Métodos de excluir e atualizar
+	public boolean excluir (Pessoa p) {
+		ConexaoBanco c = ConexaoBanco.getInstancia();
+		Connection con = c.conectar();
+		
+		String query = "DELETE FROM pessoa WHERE id_pessoa = ?";
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, p.getId_pessoa());
+			ps.executeUpdate();
+			
+			c.fecharConexao();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return true;
+	}
+	
+	public boolean atualizar (Pessoa p) {
+		ConexaoBanco c = ConexaoBanco.getInstancia();
+		Connection con = c.conectar();
+		
+		String query = "UPDATE pessoa SET primiro_nome = ?";
+		try {
+			//Foi simplesmente colado o PreparedStatement e depois aplicar o surround with try catch
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, p.getId_pessoa());
+			ps.executeUpdate();
+			
+			c.fecharConexao();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 
 }
