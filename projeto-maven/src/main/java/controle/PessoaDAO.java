@@ -101,11 +101,18 @@ public class PessoaDAO {
 		ConexaoBanco c = ConexaoBanco.getInstancia();
 		Connection con = c.conectar();
 		
-		String query = "UPDATE pessoa SET primiro_nome = ?";
+		String query = "UPDATE pessoa SET" 
+				+ " primiro_nome = ? WHERE id_pessoa = ?";
 		try {
 			//Foi simplesmente colado
 			PreparedStatement ps = con.prepareStatement(query);
-			ps.setInt(1, p.getId_pessoa());
+			
+			//Primeira interrogação:
+			ps.setString(1, p.getPrimeiro_nome());
+			
+			//Segunda interrogação:
+			ps.setInt(2, p.getId_pessoa());
+			
 			ps.executeUpdate();
 			
 			c.fecharConexao();
