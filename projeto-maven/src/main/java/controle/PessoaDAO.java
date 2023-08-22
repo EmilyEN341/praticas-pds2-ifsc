@@ -82,6 +82,7 @@ public class PessoaDAO {
 		
 		String query = "DELETE FROM pessoa WHERE id_pessoa = ?";
 		try {
+			//Foi simplesmente colado o PreparedStatement e depois aplicar o surround with try catch
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setInt(1, p.getId_pessoa());
 			ps.executeUpdate();
@@ -102,7 +103,7 @@ public class PessoaDAO {
 		
 		String query = "UPDATE pessoa SET primiro_nome = ?";
 		try {
-			//Foi simplesmente colado o PreparedStatement e depois aplicar o surround with try catch
+			//Foi simplesmente colado
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setInt(1, p.getId_pessoa());
 			ps.executeUpdate();
